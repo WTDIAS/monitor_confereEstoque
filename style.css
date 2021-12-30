@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: 'Inter', sans-serif;
+    font-size: 160%;
+}
+
+body{
+    /*altura da janela*/
+    min-height: 100vh;
+
+    /*colocando todos objetos de body na vertical*/
+    display: flex;
+    flex-direction: column;
+
+    /*alinhando todos objetos de body ao centro top*/
+    align-items: center;
+
+    /*alinhando todos objetos de body no meio da tela*/
+    justify-content: center;
+
+}

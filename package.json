@@ -1,0 +1,17 @@
+{
+  "name": "monitor_conferestoque",
+  "version": "1.0.0",
+  "description": "Monitor leituras do APP Confere Estoque",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build" : "npx electron-packager . --out=executavel"
+  },
+  "keywords": [],
+  "author": "Waldir Tiago Dias",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^16.0.5"
+  }
+}
