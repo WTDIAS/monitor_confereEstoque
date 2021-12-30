@@ -7,8 +7,9 @@
     na pasta para que o software da Contech possa importar.
 */
 
-const { BrowserWindow } = require('electron')
+const { BrowserWindow, Menu } = require('electron')
 const path = require('path');
+
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
@@ -31,10 +32,47 @@ const createWindow = () => {
     }
   })
 
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('html/index.html')
   //aqui retorno mainWindow
   return mainWindow
 }
+
+//--------------------------------------------------------------------------------------------------------------------------
+//Meu template menu
+const templateMenu = [
+  {
+    label: 'Configurações',
+    submenu : [
+      {
+        label: 'Editar',
+        click(){
+          console.log('Clicado')
+          mainWindow.webContents.send('pagina','menu_config.html')
+          
+        }
+      }
+    ]
+  },
+  {
+    label: 'Sobre',
+    submenu : [
+      {
+        label: 'Versão'
+      }
+    ]
+  }
+]
+//Criando menu com base no meu templete
+const menu = Menu.buildFromTemplate(templateMenu)
+//Adicionando o meu menu na aplicação
+Menu.setApplicationMenu(menu)
+//--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 //Aqui estou exportando apenas o mainWindow pois ja estou executando a função createWindow()
 //Para exportar a função teria que ser sem os parênteses: module.exports = createWindow
