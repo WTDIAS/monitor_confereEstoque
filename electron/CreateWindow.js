@@ -8,31 +8,38 @@
 */
 
 const { BrowserWindow, Menu } = require('electron')
-const path = require('path');
+//const { ipcRenderer } = require('electron')
+//const  path  = require('path');
 
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 400,
     height: 300,
-    //frame: false,
+    //frame: true,
     //Não abrir a janela
-    closable: false,
-    //Não exibe a janela ao criar, só irá mostrar ao clicar na tray
+    closable: true,
+    //Exibir a janela ao criar, só irá mostrar ao clicar na tray
     show: false,
-    //Não deixa aumentar o tamanho da janela
-    resizable: false,
-    //Não deixa maximizar a janela
-    fullscreen: false,
-    //não deixa minimizar a janela
+    //Almentar o tamanho da janela
+    resizable: true,
+    //Maximizar a janela
+    //fullscreen: true,
+    //Minimizar a janela
     minimizable: false,
+    //Maximizar a janela
+    maximizable: true,
 
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      //Liberação de integração do Electron com Node      
+      nodeIntegration: true
+      //preload: path.join(__dirname, 'preload.js')
     }
   })
 
   mainWindow.loadFile('html/index.html')
+
+  
   //aqui retorno mainWindow
   return mainWindow
 }
@@ -41,34 +48,23 @@ const createWindow = () => {
 //Meu template menu
 const templateMenu = [
   {
-    label: 'Configurações',
-    submenu : [
-      {
-        label: 'Editar',
-        click(){
-          console.log('Clicado')
-          mainWindow.webContents.send('pagina','menu_config.html')
-          
-        }
-      }
-    ]
-  },
-  {
     label: 'Sobre',
     submenu : [
       {
         label: 'Versão'
       }
     ]
-  }
+  },
+    {
+      label: 'OpenDevToos',
+      click: () => BrowserWindow.getFocusedWindow().toggleDevTools()
+    }
 ]
 //Criando menu com base no meu templete
 const menu = Menu.buildFromTemplate(templateMenu)
 //Adicionando o meu menu na aplicação
 Menu.setApplicationMenu(menu)
 //--------------------------------------------------------------------------------------------------------------------------
-
-
 
 
 

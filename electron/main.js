@@ -9,6 +9,7 @@
 
 
 const { app } = require('electron')
+//const { ipcMain } = require('electron')
 const path = require('path')
 const controlWindow = require('./ControlWindow.js')
 
@@ -16,7 +17,7 @@ const controlWindow = require('./ControlWindow.js')
 function App(){
   const win = require('./CreateWindow.js')
   const tray = require('./Tray.js')
-  const { toggle } = controlWindow(win, tray)
+  const { toggle } = controlWindow(win, tray)  
   
   //Ao clicar no tray 
   tray.on('click',toggle)
@@ -32,3 +33,6 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 
+// ipcMain.on('abrirMenu',(event,conteudo)=>{
+//   console.log(conteudo);
+// })

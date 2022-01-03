@@ -1,6 +1,6 @@
 const App  = {
     start(){
-        console.log('Started');
+        console.log('Passei pelo App.js :)');
     }    
 }
 

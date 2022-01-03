@@ -4,23 +4,38 @@
     box-sizing: border-box;
 }
 
+#nomeAplicacao{
+    color: white;
+    text-align: center;
+    font-size: 160%;
+}
+
+
 :root{
     font-family: 'Inter', sans-serif;
-    font-size: 160%;
+    /*font-size: 160%;*/
 }
 
 body{
     /*altura da janela*/
     min-height: 100vh;
 
-    /*colocando todos objetos de body na vertical*/
-    display: flex;
-    flex-direction: column;
-
     /*alinhando todos objetos de body ao centro top*/
     align-items: center;
 
     /*alinhando todos objetos de body no meio da tela*/
-    justify-content: center;
+    justify-content: top;
+
+    /*cor de fundo do meio da tela*/
+    background-color: rgb(9, 90, 240);
+
+    /*Toda escrita da tela branca*/
+    /*color: white;*/
+
+    /*Toda font bold*/
+    font-weight: bold;
+
+    /*Padding janela principal*/
+    padding: 10px;
 
 }

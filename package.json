@@ -5,13 +5,15 @@
   "main": "electron/main.js",
   "scripts": {
     "start": "electron .",
-    "build" : "npx electron-packager . --out=executavel"
+    "build": "npx electron-packager . --out=executavel"
   },
   "keywords": [],
   "author": "Waldir Tiago Dias",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "electron": "^16.0.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
   }
 }
